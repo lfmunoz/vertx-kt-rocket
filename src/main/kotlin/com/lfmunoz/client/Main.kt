@@ -1,5 +1,6 @@
 package com.lfmunoz.client
 
+import io.micrometer.core.instrument.DistributionSummary
 import io.vertx.config.ConfigRetriever
 import io.vertx.core.Launcher
 import io.vertx.core.Vertx
@@ -15,10 +16,18 @@ import io.vertx.kotlin.coroutines.dispatcher
 import io.vertx.kotlin.micrometer.MicrometerMetricsOptions
 import io.vertx.kotlin.micrometer.VertxPrometheusOptions
 import io.vertx.micrometer.MetricsDomain
+import io.vertx.micrometer.backends.BackendRegistries
 import kotlinx.coroutines.experimental.*
+import java.util.concurrent.TimeUnit
 
 
 class Main: CoroutineVerticle() {
+
+    val registry = BackendRegistries.getDefaultNow()!!
+    val deploySummary = DistributionSummary
+            .builder("deploySummary")
+            .publishPercentiles(0.5, 0.95)
+            .register(registry)
 
     override suspend fun start()  {
         GlobalScope.launch(context.dispatcher()) {
@@ -46,6 +55,7 @@ class Main: CoroutineVerticle() {
             println("-------------------------------------------")
 
             // Deploy Client Verticles
+            var start = System.nanoTime()
             repeat(numOfClients) {
                 delay(launchDelay)
                 launch {
@@ -57,6 +67,9 @@ class Main: CoroutineVerticle() {
                     )
                     vertx.deployVerticle(ClientVerticle(it, config))
                 }
+                val end = System.nanoTime()
+                deploySummary.record(TimeUnit.NANOSECONDS.toMillis(end - start).toDouble())
+                start = end
             }
 
         }

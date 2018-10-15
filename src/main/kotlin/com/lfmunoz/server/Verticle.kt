@@ -57,15 +57,22 @@ class Verticle : CoroutineVerticle() {
             connMap.put(serverHandler.id, serverHandler)
             socket.handler(serverHandler)
 
+            socket.closeHandler {
+                connectionCount.decrementAndGet()
+            }
+            socket.exceptionHandler { err ->
+                exceptionCount.increment()
+                log.error("socket exception: {} ", err.message)
+            }
+
+
         }
 
-        server.close  {
-            connectionCount.decrementAndGet()
-        }
+        //server.close  {
+        //}
 
         server.exceptionHandler { err ->
-            exceptionCount.increment()
-            log.error(err.message)
+            log.error("server exception: {} ", err.message)
         }
 
         try {

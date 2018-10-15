@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit
 class Handler(
         val vertx: Vertx,
         val id: Int,
-        val socket: NetSocket,
+        val socket: NetSocket?,
         val pingDelay: Long
 ) : Handler<Buffer> {
     private val log by lazy { LoggerFactory.getLogger(this.javaClass.simpleName) }
@@ -54,7 +54,7 @@ class Handler(
         GlobalScope.launch(vertx.dispatcher()) {
             while(true) {
                 var buff = Buffer.buffer().appendLong(++sendIdx)
-                socket.write(buff)
+                socket?.write(buff)
                 delay(pingDelay)
             }
         }
