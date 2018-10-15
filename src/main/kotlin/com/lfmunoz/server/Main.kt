@@ -1,6 +1,7 @@
 package com.lfmunoz.server
 
 import io.vertx.config.ConfigRetriever
+import io.vertx.core.Launcher
 import io.vertx.core.Vertx
 import io.vertx.core.VertxOptions
 import io.vertx.core.json.JsonObject
@@ -12,6 +13,7 @@ import io.vertx.kotlin.coroutines.awaitResult
 import io.vertx.kotlin.micrometer.MicrometerMetricsOptions
 import io.vertx.kotlin.micrometer.VertxPrometheusOptions
 import io.vertx.micrometer.MetricsDomain
+import io.vertx.micrometer.VertxJmxMetricsOptions
 import kotlinx.coroutines.experimental.delay
 import kotlinx.coroutines.experimental.launch
 import kotlinx.coroutines.experimental.runBlocking
@@ -39,6 +41,33 @@ fun main(args: Array<String>) {
         System.out.println("Deploying with cores = ${cores}")
         var options = DeploymentOptions(config = jsonConfig, instances = cores)
         awaitResult<String> { vertx.deployVerticle("com.lfmunoz.server.Verticle", options, it) }
+    }
+
+}
+
+class Main: Launcher() {
+
+
+
+
+    override fun beforeStartingVertx(options: VertxOptions) {
+        options.metricsOptions = MicrometerMetricsOptions()
+                .setEnabled(true)
+                .addDisabledMetricsCategory(MetricsDomain.EVENT_BUS)
+                .addDisabledMetricsCategory(MetricsDomain.NET_CLIENT)
+                .addDisabledMetricsCategory(MetricsDomain.NET_SERVER)
+                .addDisabledMetricsCategory(MetricsDomain.HTTP_SERVER)
+                .addDisabledMetricsCategory(MetricsDomain.HTTP_CLIENT)
+                .setPrometheusOptions(
+                        VertxPrometheusOptions()
+                                .setEnabled(true)
+                                .setStartEmbeddedServer(true)
+                                .setEmbeddedServerOptions(
+                                        HttpServerOptions()
+                                                .setPort(port)
+                                )
+                                .setEmbeddedServerEndpoint(route)
+                )
     }
 
 }
