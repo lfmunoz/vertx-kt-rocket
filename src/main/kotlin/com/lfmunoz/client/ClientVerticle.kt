@@ -1,6 +1,6 @@
 package com.lfmunoz.client
 
-import com.lfmunoz.Config
+import com.lfmunoz.client.Config
 import io.vertx.core.Vertx
 import io.vertx.kotlin.core.net.NetClientOptions
 import io.vertx.kotlin.coroutines.CoroutineVerticle
@@ -16,14 +16,14 @@ class ClientVerticle(val id: Int, val myConfig: Config): CoroutineVerticle() {
         log.trace("${Vertx.currentContext()} Client - start() vertx context")
 
         var options = NetClientOptions(
-                connectTimeout = 10000)
+                connectTimeout = 10000, localAddress = myConfig.localHost)
         var client = vertx.createNetClient(options)
-        client.connect(myConfig.port, myConfig.host) { res ->
+        client.connect(myConfig.port, myConfig.remoteHost) { res ->
             if (res.succeeded()) {
            //     log.info("[${id}] - Connected!")
                 var socket = res.result()
 
-                val clientHandler = ClientHandler(vertx, id, socket)
+                val clientHandler = ClientHandler(vertx, id, socket, 0L)
                 socket.handler(clientHandler)
             } else {
                 log.error("Failed to connect: ${res.cause().message}")
@@ -39,3 +39,5 @@ class ClientVerticle(val id: Int, val myConfig: Config): CoroutineVerticle() {
 
 
 }
+
+

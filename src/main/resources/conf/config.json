@@ -1,6 +1,8 @@
 {
   "port": 8123,
-  "host": "localhost",
+  "host": "0.0.0.0",
   "numOfClients": 10,
-  "delayBetweenSend": 100
+  "delayBetweenSend": 10000,
+  "launchDelay": 10,
+  "localAddress": "0.0.0.0, 0.0.0.0"
 }
