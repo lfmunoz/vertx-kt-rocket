@@ -20,12 +20,16 @@ build:
 exec: ${FAT_JAR}
 	java -jar ${FAT_JAR}
 
-client: build
-	java -cp ${FAT_JAR} com.lfmunoz.client.MainKt
+JAVA_OPTS=-Dvertx.logger-delegate-factory-class-name=io.vertx.core.logging.SLF4JLogDelegateFactory
+run: build
+	#java ${JAVA_OPTS} -cp ${FAT_JAR} com.lfmunoz.AppKt start
+	#java -cp ${FAT_JAR} com.lfmunoz.AppKt run eco.usp.harness.MainVerticle --launcher-class=eco.usp.harness.PerfLauncher -conf src/main/resources/application-config.json
 
 server: build
-	java -cp ${FAT_JAR} com.lfmunoz.server.MainKt
+	java -cp ${FAT_JAR} com.lfmunoz.AppKt run com.lfmunoz.server.Main --launcher-class=com.lfmunoz.App -conf ./src/main/resources/conf/config.json
 
+client: build
+	java -cp ${FAT_JAR} com.lfmunoz.AppKt run com.lfmunoz.client.Main --launcher-class=com.lfmunoz.App -conf ./src/main/resources/conf/config.json
 
 ############################################################################
 # Production

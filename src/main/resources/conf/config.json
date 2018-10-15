@@ -1,4 +1,6 @@
 {
+  "prometheusRoute": "/metrics",
+  "prometheusPort": 9123,
   "port": 8123,
   "host": "0.0.0.0",
   "numOfClients": 10,

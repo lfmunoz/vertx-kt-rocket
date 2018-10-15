@@ -9,45 +9,29 @@ import io.vertx.core.logging.LoggerFactory
 import io.vertx.core.logging.SLF4JLogDelegateFactory
 import io.vertx.kotlin.core.DeploymentOptions
 import io.vertx.kotlin.core.http.HttpServerOptions
+import io.vertx.kotlin.coroutines.CoroutineVerticle
 import io.vertx.kotlin.coroutines.awaitResult
+import io.vertx.kotlin.coroutines.dispatcher
 import io.vertx.kotlin.micrometer.MicrometerMetricsOptions
 import io.vertx.kotlin.micrometer.VertxPrometheusOptions
 import io.vertx.micrometer.MetricsDomain
-import kotlinx.coroutines.experimental.delay
-import kotlinx.coroutines.experimental.launch
-import kotlinx.coroutines.experimental.runBlocking
+import kotlinx.coroutines.experimental.*
 
 
+class Main: CoroutineVerticle() {
 
-fun main(args: Array<String>) {
-
-
-        runBlocking {
-
-
-            System.setProperty(
-                    LoggerFactory.LOGGER_DELEGATE_FACTORY_CLASS_NAME,
-                    SLF4JLogDelegateFactory::class.java.name
-            )
-
-            // Prometheus Settings
-            val prometheusPort = 9124
-            val prometheusRoute = "/metrics"
-
-            // Start Vertx
-            val vertx = Vertx.vertx(returnVertxOptions(prometheusPort, prometheusRoute))
-            // Read JSON Config
-            val jsonConfig = awaitResult<JsonObject> { ConfigRetriever.create(vertx).getConfig(it) }
+    override suspend fun start()  {
+        GlobalScope.launch(context.dispatcher()) {
 
             // Client specific config
-            val port = jsonConfig.getInteger("port", 8123)
-            val host = jsonConfig.getString("host", "0.0.0.0")
-            val sendDelay = jsonConfig.getLong("delayBetweenSend", 10000L)
+            val port = config.getInteger("port", 8123)
+            val host = config.getString("host", "0.0.0.0")
+            val sendDelay = config.getLong("delayBetweenSend", 10000L)
             // Global Config
-            val numOfClients = jsonConfig.getInteger("numOfClients", 10)
-            val launchDelay = jsonConfig.getLong("launchDelay", 10L)
+            val numOfClients = config.getInteger("numOfClients", 10)
+            val launchDelay = config.getLong("launchDelay", 10L)
 
-            val localAddresses = jsonConfig.getString("localAddress", "")
+            val localAddresses = config.getString("localAddress", "")
                     .split(",")
                     .mapNotNull {
                         val address = it.trim()
@@ -59,7 +43,6 @@ fun main(args: Array<String>) {
             println("Launching ${numOfClients} clients")
             println("Binding to ${localAddresses}")
             println("Connecting to ${host} on ${port}")
-            println("Prometheus running on http://localhost:${prometheusPort}/${prometheusRoute}")
             println("-------------------------------------------")
 
             // Deploy Client Verticles
@@ -77,28 +60,7 @@ fun main(args: Array<String>) {
             }
 
         }
-}
-
-fun returnVertxOptions(port: Int, route: String): VertxOptions {
-    val options = VertxOptions()
-    options.metricsOptions = MicrometerMetricsOptions()
-            .setEnabled(true)
-            .addDisabledMetricsCategory(MetricsDomain.EVENT_BUS)
-            .addDisabledMetricsCategory(MetricsDomain.NET_CLIENT)
-            .addDisabledMetricsCategory(MetricsDomain.NET_SERVER)
-            .addDisabledMetricsCategory(MetricsDomain.HTTP_SERVER)
-            .addDisabledMetricsCategory(MetricsDomain.HTTP_CLIENT)
-            .setPrometheusOptions(
-                    VertxPrometheusOptions()
-                            .setEnabled(true)
-                            .setStartEmbeddedServer(true)
-                            .setEmbeddedServerOptions(
-                                    HttpServerOptions()
-                                            .setPort(port)
-                            )
-                            .setEmbeddedServerEndpoint(route)
-            )
-    return options
+    }
 }
 
 

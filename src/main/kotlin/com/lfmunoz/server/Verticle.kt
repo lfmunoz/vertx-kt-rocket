@@ -76,13 +76,3 @@ class Verticle : CoroutineVerticle() {
     }
 
 }
-
-fun infiniteIterator(items :List<String>) = object : Iterator<String> {
-    var idx = 0
-    override fun hasNext(): Boolean {
-        return true
-    }
-    override fun next(): String {
-        return items[idx++ % items.size]
-    }
-}
