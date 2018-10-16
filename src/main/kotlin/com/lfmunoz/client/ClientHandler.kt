@@ -22,7 +22,7 @@ class ClientHandler(
     val id: Int,
     val socket: NetSocket?,
     val pingDelay: Long
-) : Handler<Buffer> {
+) {
 
     private val log by lazy { LoggerFactory.getLogger(this.javaClass.simpleName) }
 
@@ -39,12 +39,14 @@ class ClientHandler(
 
     // constructor
     init {
+        // initialize socket handler
+        socket?.handler{ handle(it) }
         sendPings()
     }
     ////////////////////////////////////////////////////////////////////////////////
     // methods
     ////////////////////////////////////////////////////////////////////////////////
-    override fun handle(buffer: Buffer) {
+    fun handle(buffer: Buffer) {
         //  log.trace("[$id] - ${buffer.getLong(0)} on ${Vertx.currentContext()}")
         val now = System.nanoTime()
         val deltaInMs = TimeUnit.NANOSECONDS.toMillis(now - lastServerActivity)

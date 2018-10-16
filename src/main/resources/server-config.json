@@ -1,0 +1,10 @@
+{
+  "prometheusRoute": "/metrics",
+  "prometheusPort": 9124,
+  "port": 8123,
+  "host": "0.0.0.0",
+  "numOfClients": 10,
+  "delayBetweenSend": 10000,
+  "launchDelay": 10,
+  "localAddress": "0.0.0.0, 0.0.0.0"
+}

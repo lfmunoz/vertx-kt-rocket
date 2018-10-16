@@ -2,8 +2,11 @@ package com.lfmunoz.client
 
 import com.lfmunoz.client.Config
 import io.vertx.core.Vertx
+import io.vertx.core.net.NetServer
+import io.vertx.core.net.NetSocket
 import io.vertx.kotlin.core.net.NetClientOptions
 import io.vertx.kotlin.coroutines.CoroutineVerticle
+import io.vertx.kotlin.coroutines.awaitResult
 import org.slf4j.LoggerFactory
 
 class ClientVerticle(val id: Int, val myConfig: Config): CoroutineVerticle() {
@@ -15,20 +18,19 @@ class ClientVerticle(val id: Int, val myConfig: Config): CoroutineVerticle() {
         log.trace("${Thread.currentThread()} Client - start() thread ")
         log.trace("${Vertx.currentContext()} Client - start() vertx context")
 
-        var options = NetClientOptions(
+        val options = NetClientOptions(
                 connectTimeout = 10000, localAddress = myConfig.localHost)
-        var client = vertx.createNetClient(options)
-        client.connect(myConfig.port, myConfig.remoteHost) { res ->
-            if (res.succeeded()) {
-           //     log.info("[${id}] - Connected!")
-                var socket = res.result()
+        val client = vertx.createNetClient(options)
 
-                val clientHandler = ClientHandler(vertx, id, socket, 0L)
-                socket.handler(clientHandler)
-            } else {
-                log.error("Failed to connect: ${res.cause().message}")
-            }
+        try {
+            val socket = awaitResult<NetSocket> { client.connect(myConfig.port, myConfig.remoteHost, it) }
+            ClientHandler(vertx, id, socket, 1000L)
+        } catch(e: Exception) {
+            log.error("error with connect, ${e.message}")
         }
+
+
+
     }
 
     override suspend fun stop() {

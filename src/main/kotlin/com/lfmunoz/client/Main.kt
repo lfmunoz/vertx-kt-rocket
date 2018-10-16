@@ -12,6 +12,7 @@ import io.vertx.core.logging.SLF4JLogDelegateFactory
 import io.vertx.kotlin.core.DeploymentOptions
 import io.vertx.kotlin.core.http.HttpServerOptions
 import io.vertx.kotlin.coroutines.CoroutineVerticle
+import io.vertx.kotlin.coroutines.awaitBlocking
 import io.vertx.kotlin.coroutines.awaitResult
 import io.vertx.kotlin.coroutines.dispatcher
 import io.vertx.kotlin.micrometer.MicrometerMetricsOptions
@@ -22,15 +23,15 @@ import kotlinx.coroutines.experimental.*
 import java.util.concurrent.TimeUnit
 
 
-class Main: CoroutineVerticle() {
-
+class Main : CoroutineVerticle() {
+    private val log by lazy { org.slf4j.LoggerFactory.getLogger(this.javaClass.simpleName) }
     val registry = BackendRegistries.getDefaultNow()!!
     val deploySummary = DistributionSummary
             .builder(SERVER_DEPLOY_SUMMARY)
             .publishPercentiles(0.5, 0.95)
             .register(registry)
 
-    override suspend fun start()  {
+    override suspend fun start() {
         GlobalScope.launch(context.dispatcher()) {
 
             // Client specific config
@@ -56,43 +57,50 @@ class Main: CoroutineVerticle() {
             println("-------------------------------------------")
 
             // Deploy Client Verticles
+
+            log.info("Starting deployment of {} clients", numOfClients)
             var start = System.nanoTime()
             repeat(numOfClients) {
                 delay(launchDelay)
-                launch {
-                    val config = Config(
-                            port,
-                            host,
-                            addressItr.next(),
-                            sendDelay
-                    )
-                    vertx.deployVerticle(ClientVerticle(it, config))
+                val config = Config(
+                        port,
+                        host,
+                        addressItr.next(),
+                        sendDelay
+                )
+                val id = it
+                try {
+                    awaitResult<String> { vertx.deployVerticle(ClientVerticle(id, config), it) }
+                } catch (e: Exception) {
+                    log.error("deply error: {}", e.message)
                 }
                 val end = System.nanoTime()
                 deploySummary.record(TimeUnit.NANOSECONDS.toMillis(end - start).toDouble())
                 start = end
             }
+            log.info("Finished deploying {} clients", numOfClients)
+
 
         }
     }
 }
 
 
-
 data class Config(
         val port: Int,
         val remoteHost: String,
         val localHost: String,
-        val sendDelay : Long
+        val sendDelay: Long
         // val registry: MeterRegistry
 )
 
 
-fun infiniteIterator(items :List<String>) = object : Iterator<String> {
+fun infiniteIterator(items: List<String>) = object : Iterator<String> {
     var idx = 0
     override fun hasNext(): Boolean {
         return true
     }
+
     override fun next(): String {
         return items[idx++ % items.size]
     }

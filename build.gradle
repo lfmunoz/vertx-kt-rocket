@@ -118,15 +118,15 @@ test {
 
 defaultTasks 'run'
 
+def clientVerticle = 'com.lfmunoz.client.Main'
+def serverVerticle = 'com.lfmunoz.server.Main'
 
-/*
 run {
     //jvmArgs = ["-Dvertx.logger-delegate-factory-class-name=io.vertx.core.logging.SLF4JLogDelegateFactory"]
-    args = ['run', mainVerticleName,
-            "-conf src/main/resources/application-config.json",
-            "--redeploy=$watchForChange",
-            "--launcher-class=$mainClassName",
-            "--on-redeploy=$doOnChange"]
+    args = [
+            'run', serverVerticle,
+            "-conf src/main/resources/server-config.json",
+            "--launcher-class=$mainClassName"
+           ]
 }
-*/
 

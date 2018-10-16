@@ -13,7 +13,7 @@ class Main : CoroutineVerticle() {
     override suspend fun start() {
         GlobalScope.launch(context.dispatcher()) {
             // Deploy Server Verticle
-            var cores = Runtime.getRuntime().availableProcessors()
+            var cores = Runtime.getRuntime().availableProcessors() / 2
             System.out.println("Deploying with cores = ${cores}")
             var options = DeploymentOptions(config = config, instances = cores)
             awaitResult<String> { vertx.deployVerticle("com.lfmunoz.server.Verticle", options, it) }
