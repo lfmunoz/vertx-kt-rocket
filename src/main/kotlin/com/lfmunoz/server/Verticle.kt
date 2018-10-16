@@ -1,5 +1,7 @@
 package com.lfmunoz.server
 
+import com.lfmunoz.SERVER_CONNECTION_COUNT
+import com.lfmunoz.SERVER_EXCEPTION_COUNT
 import io.micrometer.core.instrument.DistributionSummary
 import io.vertx.core.Vertx
 import io.vertx.core.net.NetServer
@@ -21,8 +23,8 @@ class Verticle : CoroutineVerticle() {
     private var delayBetweenSend = 15000L
 
     private val registry = BackendRegistries.getDefaultNow()!!
-    private val connectionCount = registry.gauge("connectionCount", AtomicLong(0L))!!
-    private val exceptionCount = registry.counter("exceptionCount")
+    private val connectionCount = registry.gauge(SERVER_CONNECTION_COUNT, AtomicLong(0L))!!
+    private val exceptionCount = registry.counter(SERVER_EXCEPTION_COUNT)
 
     private val connMap: ConcurrentHashMap<Int, Handler> = ConcurrentHashMap<Int, Handler>()
     private var handlerId = 0

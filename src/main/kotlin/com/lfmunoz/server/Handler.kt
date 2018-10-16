@@ -1,5 +1,6 @@
 package com.lfmunoz.server
 
+import com.lfmunoz.SERVER_PING_SUMMARY
 import io.micrometer.core.instrument.DistributionSummary
 import io.vertx.core.Handler
 import io.vertx.core.Vertx
@@ -30,7 +31,7 @@ class Handler(
 
     val registry = BackendRegistries.getDefaultNow()!!
     val pingSummary = DistributionSummary
-            .builder("pingSummary")
+            .builder(SERVER_PING_SUMMARY)
             .publishPercentiles(0.5, 0.95)
             .register(registry)
 

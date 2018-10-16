@@ -1,5 +1,6 @@
 package com.lfmunoz.client
 
+import com.lfmunoz.SERVER_DEPLOY_SUMMARY
 import io.micrometer.core.instrument.DistributionSummary
 import io.vertx.config.ConfigRetriever
 import io.vertx.core.Launcher
@@ -25,7 +26,7 @@ class Main: CoroutineVerticle() {
 
     val registry = BackendRegistries.getDefaultNow()!!
     val deploySummary = DistributionSummary
-            .builder("deploySummary")
+            .builder(SERVER_DEPLOY_SUMMARY)
             .publishPercentiles(0.5, 0.95)
             .register(registry)
 
