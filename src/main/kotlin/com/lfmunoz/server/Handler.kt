@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory
 import java.util.concurrent.TimeUnit
 
 ////////////////////////////////////////////////////////////////////////////////
-// Handler
+// Server Handler
 ////////////////////////////////////////////////////////////////////////////////
 class Handler(
         val vertx: Vertx,
@@ -23,9 +23,11 @@ class Handler(
         val socket: NetSocket?,
         val pingDelay: Long
 ) : Handler<Buffer> {
-    private val log by lazy { LoggerFactory.getLogger(this.javaClass.simpleName) }
+    private val log by lazy { LoggerFactory.getLogger(this.javaClass.name) }
 
-    // Fields
+    ////////////////////////////////////////////////////////////////////////////////
+    // fields
+    ////////////////////////////////////////////////////////////////////////////////
     var sendIdx: Long = 0L
     var lastServerActivity: Long = System.nanoTime()
 
@@ -35,8 +37,11 @@ class Handler(
             .publishPercentiles(0.5, 0.95)
             .register(registry)
 
+    ////////////////////////////////////////////////////////////////////////////////
     // constructor
+    ////////////////////////////////////////////////////////////////////////////////
     init {
+        log.debug("ServerHandler ${id}")
         sendPings()
     }
     ////////////////////////////////////////////////////////////////////////////////
@@ -47,7 +52,7 @@ class Handler(
         val deltaInMs = TimeUnit.NANOSECONDS.toMillis(now - lastServerActivity)
         lastServerActivity = now
         pingSummary.record(deltaInMs.toDouble())
-      //  log.trace("[$id] - ${buffer.getLong(0)} on ${Vertx.currentContext()}")
+       // log.trace("[$id] - ${buffer.getLong(0)} on ${Vertx.currentContext()}")
 
     }
 
@@ -60,4 +65,4 @@ class Handler(
             }
         }
     }
-}
+} // end of class

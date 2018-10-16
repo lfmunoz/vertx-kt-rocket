@@ -9,36 +9,45 @@ import io.vertx.kotlin.coroutines.CoroutineVerticle
 import io.vertx.kotlin.coroutines.awaitResult
 import org.slf4j.LoggerFactory
 
+////////////////////////////////////////////////////////////////////////////////
+// ClientVerticle
+////////////////////////////////////////////////////////////////////////////////
 class ClientVerticle(val id: Int, val myConfig: Config): CoroutineVerticle() {
 
-    private val log by lazy { LoggerFactory.getLogger(this.javaClass.simpleName) }
+    private val log by lazy { LoggerFactory.getLogger(this.javaClass.name) }
 
+    var socket: NetSocket? = null
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // Vertx methods
+    ////////////////////////////////////////////////////////////////////////////////
     override suspend fun start() {
+        log.trace("ClientVerticle.start() - ${id} - ${Vertx.currentContext()}")
+        connect()
+    }
 
-        log.trace("${Thread.currentThread()} Client - start() thread ")
-        log.trace("${Vertx.currentContext()} Client - start() vertx context")
+    override suspend fun stop() {
+        log.trace("ClientVerticle.stop() - ${id} - ${Vertx.currentContext()}")
+    }
 
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // methods
+    ////////////////////////////////////////////////////////////////////////////////
+    suspend fun connect() {
         val options = NetClientOptions(
                 connectTimeout = 10000, localAddress = myConfig.localHost)
         val client = vertx.createNetClient(options)
 
         try {
-            val socket = awaitResult<NetSocket> { client.connect(myConfig.port, myConfig.remoteHost, it) }
-            ClientHandler(vertx, id, socket, 1000L)
+            socket = awaitResult<NetSocket> { client.connect(myConfig.port, myConfig.remoteHost, it) }
+            ClientHandler(vertx, id, socket, 10000L)
+
         } catch(e: Exception) {
-            log.error("error with connect, ${e.message}")
+            socket = null
+            log.error("Error with connect, ${e.message}")
         }
-
-
-
     }
-
-    override suspend fun stop() {
-        log.trace("${Thread.currentThread()} Client - stop() thread ")
-        log.trace("${Vertx.currentContext()} Client - stop() vertx context")
-
-    }
-
 
 }
 

@@ -1,37 +1,25 @@
 package com.lfmunoz.client
 
-import com.lfmunoz.SERVER_DEPLOY_SUMMARY
+import com.lfmunoz.CLIENT_DEPLOY_SUMMARY
 import io.micrometer.core.instrument.DistributionSummary
-import io.vertx.config.ConfigRetriever
-import io.vertx.core.Launcher
-import io.vertx.core.Vertx
-import io.vertx.core.VertxOptions
-import io.vertx.core.json.JsonObject
-import io.vertx.core.logging.LoggerFactory
-import io.vertx.core.logging.SLF4JLogDelegateFactory
-import io.vertx.kotlin.core.DeploymentOptions
-import io.vertx.kotlin.core.http.HttpServerOptions
 import io.vertx.kotlin.coroutines.CoroutineVerticle
-import io.vertx.kotlin.coroutines.awaitBlocking
 import io.vertx.kotlin.coroutines.awaitResult
 import io.vertx.kotlin.coroutines.dispatcher
-import io.vertx.kotlin.micrometer.MicrometerMetricsOptions
-import io.vertx.kotlin.micrometer.VertxPrometheusOptions
-import io.vertx.micrometer.MetricsDomain
 import io.vertx.micrometer.backends.BackendRegistries
 import kotlinx.coroutines.experimental.*
 import java.util.concurrent.TimeUnit
 
 
 class Main : CoroutineVerticle() {
-    private val log by lazy { org.slf4j.LoggerFactory.getLogger(this.javaClass.simpleName) }
+    private val log by lazy { org.slf4j.LoggerFactory.getLogger(this.javaClass.name) }
     val registry = BackendRegistries.getDefaultNow()!!
     val deploySummary = DistributionSummary
-            .builder(SERVER_DEPLOY_SUMMARY)
+            .builder(CLIENT_DEPLOY_SUMMARY)
             .publishPercentiles(0.5, 0.95)
             .register(registry)
 
     override suspend fun start() {
+        println(this.javaClass.name)
         GlobalScope.launch(context.dispatcher()) {
 
             // Client specific config
@@ -50,11 +38,11 @@ class Main : CoroutineVerticle() {
                     }
             val addressItr = infiniteIterator(localAddresses)
 
-            println("-------------------------------------------")
-            println("Launching ${numOfClients} clients")
-            println("Binding to ${localAddresses}")
-            println("Connecting to ${host} on ${port}")
-            println("-------------------------------------------")
+            log.info("-------------------------------------------")
+            log.info("Launching ${numOfClients} clients")
+            log.info("Binding to ${localAddresses}")
+            log.info("Connecting to ${host} on ${port}")
+            log.info("-------------------------------------------")
 
             // Deploy Client Verticles
 
@@ -72,7 +60,7 @@ class Main : CoroutineVerticle() {
                 try {
                     awaitResult<String> { vertx.deployVerticle(ClientVerticle(id, config), it) }
                 } catch (e: Exception) {
-                    log.error("deply error: {}", e.message)
+                    log.error("Deploy error - {}", e.message)
                 }
                 val end = System.nanoTime()
                 deploySummary.record(TimeUnit.NANOSECONDS.toMillis(end - start).toDouble())

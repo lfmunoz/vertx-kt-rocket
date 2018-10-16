@@ -20,11 +20,11 @@ import java.util.concurrent.TimeUnit
 class ClientHandler(
     val vertx: Vertx,
     val id: Int,
-    val socket: NetSocket?,
+    var socket: NetSocket?,
     val pingDelay: Long
 ) {
 
-    private val log by lazy { LoggerFactory.getLogger(this.javaClass.simpleName) }
+    private val log by lazy { LoggerFactory.getLogger(this.javaClass.name) }
 
     // Metrics
     val registry = BackendRegistries.getDefaultNow()!!
@@ -39,8 +39,17 @@ class ClientHandler(
 
     // constructor
     init {
+        log.debug("ClientHandler ${id}")
         // initialize socket handler
         socket?.handler{ handle(it) }
+        socket?.closeHandler {
+            this.socket = null
+            log.debug("${id} socket closed")
+        }
+        socket?.exceptionHandler{
+            this.socket = null
+            log.error("${id} socket exception {}", it.message)
+        }
         sendPings()
     }
     ////////////////////////////////////////////////////////////////////////////////
