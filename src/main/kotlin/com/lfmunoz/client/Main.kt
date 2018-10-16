@@ -42,6 +42,7 @@ class Main : CoroutineVerticle() {
             log.info("Launching ${numOfClients} clients")
             log.info("Binding to ${localAddresses}")
             log.info("Connecting to ${host} on ${port}")
+            log.info("Launch delay set to ${launchDelay}")
             log.info("-------------------------------------------")
 
             // Deploy Client Verticles
@@ -49,13 +50,7 @@ class Main : CoroutineVerticle() {
             log.info("Starting deployment of {} clients", numOfClients)
             var start = System.nanoTime()
             repeat(numOfClients) {
-                delay(launchDelay)
-                val config = Config(
-                        port,
-                        host,
-                        addressItr.next(),
-                        sendDelay
-                )
+                val config = Config( port, host, addressItr.next(), sendDelay )
                 val id = it
                 try {
                     awaitResult<String> { vertx.deployVerticle(ClientVerticle(id, config), it) }
@@ -65,10 +60,9 @@ class Main : CoroutineVerticle() {
                 val end = System.nanoTime()
                 deploySummary.record(TimeUnit.NANOSECONDS.toMillis(end - start).toDouble())
                 start = end
+                delay(launchDelay)
             }
             log.info("Finished deploying {} clients", numOfClients)
-
-
         }
     }
 }

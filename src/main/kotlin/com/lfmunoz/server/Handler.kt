@@ -1,6 +1,8 @@
 package com.lfmunoz.server
 
+import com.lfmunoz.CLIENT_PONG_SUMMARY
 import com.lfmunoz.SERVER_PING_SUMMARY
+import com.lfmunoz.SERVER_PONG_SUMMARY
 import io.micrometer.core.instrument.DistributionSummary
 import io.vertx.core.Handler
 import io.vertx.core.Vertx
@@ -28,15 +30,19 @@ class Handler(
     ////////////////////////////////////////////////////////////////////////////////
     // fields
     ////////////////////////////////////////////////////////////////////////////////
-    var sendIdx: Long = 0L
-    var lastServerActivity: Long = System.nanoTime()
-
     val registry = BackendRegistries.getDefaultNow()!!
     val pingSummary = DistributionSummary
             .builder(SERVER_PING_SUMMARY)
             .publishPercentiles(0.5, 0.95)
             .register(registry)
+    val pongSummary = DistributionSummary
+            .builder(SERVER_PONG_SUMMARY)
+            .publishPercentiles(0.5, 0.95)
+            .register(registry)
 
+    var sendIdx: Long = 0L
+    var lastServerActivity: Long = System.nanoTime()
+    var lastPingSent : Long = System.nanoTime()
     ////////////////////////////////////////////////////////////////////////////////
     // constructor
     ////////////////////////////////////////////////////////////////////////////////
@@ -51,7 +57,7 @@ class Handler(
         val now = System.nanoTime()
         val deltaInMs = TimeUnit.NANOSECONDS.toMillis(now - lastServerActivity)
         lastServerActivity = now
-        pingSummary.record(deltaInMs.toDouble())
+        pongSummary.record(deltaInMs.toDouble())
        // log.trace("[$id] - ${buffer.getLong(0)} on ${Vertx.currentContext()}")
 
     }
@@ -59,8 +65,11 @@ class Handler(
     fun sendPings() {
         GlobalScope.launch(vertx.dispatcher()) {
             while(true) {
-                var buff = Buffer.buffer().appendLong(++sendIdx)
-                socket?.write(buff)
+                val now = System.nanoTime()
+                socket?.write(Buffer.buffer().appendLong(++sendIdx))
+                val deltaInMs = TimeUnit.NANOSECONDS.toMillis(now - lastPingSent)
+                lastPingSent = now
+                pingSummary.record(deltaInMs.toDouble())
                 delay(pingDelay)
             }
         }

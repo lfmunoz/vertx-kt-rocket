@@ -1,6 +1,7 @@
 package com.lfmunoz.client
 
 import com.lfmunoz.CLIENT_PING_SUMMARY
+import com.lfmunoz.CLIENT_PONG_SUMMARY
 import io.micrometer.core.instrument.DistributionSummary
 import io.vertx.core.Handler
 import io.vertx.core.Vertx
@@ -23,21 +24,29 @@ class ClientHandler(
     var socket: NetSocket?,
     val pingDelay: Long
 ) {
-
     private val log by lazy { LoggerFactory.getLogger(this.javaClass.name) }
-
+    ////////////////////////////////////////////////////////////////////////////////
+    // Fields
+    ////////////////////////////////////////////////////////////////////////////////
     // Metrics
     val registry = BackendRegistries.getDefaultNow()!!
     val pingSummary = DistributionSummary
             .builder(CLIENT_PING_SUMMARY)
             .publishPercentiles(0.5, 0.95)
             .register(registry)
+    val pongSummary = DistributionSummary
+            .builder(CLIENT_PONG_SUMMARY)
+            .publishPercentiles(0.5, 0.95)
+            .register(registry)
 
-    // Fields
+    // Client State
     var sendIdx: Long = 0L
     var lastServerActivity: Long = System.nanoTime()
+    var lastPingSent : Long = System.nanoTime()
 
+    ////////////////////////////////////////////////////////////////////////////////
     // constructor
+    ////////////////////////////////////////////////////////////////////////////////
     init {
         log.debug("ClientHandler ${id}")
         // initialize socket handler
@@ -53,20 +62,23 @@ class ClientHandler(
         sendPings()
     }
     ////////////////////////////////////////////////////////////////////////////////
-    // methods
+    // Methods
     ////////////////////////////////////////////////////////////////////////////////
     fun handle(buffer: Buffer) {
         //  log.trace("[$id] - ${buffer.getLong(0)} on ${Vertx.currentContext()}")
         val now = System.nanoTime()
         val deltaInMs = TimeUnit.NANOSECONDS.toMillis(now - lastServerActivity)
         lastServerActivity = now
-        pingSummary.record(deltaInMs.toDouble())
+        pongSummary.record(deltaInMs.toDouble())
     }
     fun sendPings() {
         GlobalScope.launch(vertx.dispatcher()) {
             while(true) {
-                var buff = Buffer.buffer().appendLong(++sendIdx)
-                socket?.write(buff)
+                val now = System.nanoTime()
+                socket?.write(Buffer.buffer().appendLong(++sendIdx))
+                val deltaInMs = TimeUnit.NANOSECONDS.toMillis(now - lastPingSent)
+                lastPingSent = now
+                pingSummary.record(deltaInMs.toDouble())
                 delay(pingDelay)
             }
         }
