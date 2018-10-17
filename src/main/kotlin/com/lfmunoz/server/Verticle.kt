@@ -13,10 +13,7 @@ import io.vertx.core.net.NetSocket
 import io.vertx.kotlin.core.net.NetServerOptions
 import io.vertx.kotlin.coroutines.*
 import io.vertx.micrometer.backends.BackendRegistries
-import kotlinx.coroutines.experimental.GlobalScope
-import kotlinx.coroutines.experimental.async
-import kotlinx.coroutines.experimental.coroutineScope
-import kotlinx.coroutines.experimental.launch
+import kotlinx.coroutines.experimental.*
 import org.slf4j.LoggerFactory
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.atomic.AtomicInteger
@@ -44,6 +41,8 @@ class Verticle : CoroutineVerticle() {
 
 
     private val connMap: ConcurrentHashMap<Int, Handler> = ConcurrentHashMap<Int, Handler>()
+
+
 
     override suspend fun start() {
         contextId = context.deploymentID()

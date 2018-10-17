@@ -16,9 +16,9 @@ import org.slf4j.LoggerFactory
 import java.util.concurrent.TimeUnit
 
 ////////////////////////////////////////////////////////////////////////////////
-// ClientHandler
+// Handler
 ////////////////////////////////////////////////////////////////////////////////
-class ClientHandler(
+class Handler(
     val vertx: Vertx,
     val id: Int,
     var socket: NetSocket?,
@@ -48,7 +48,7 @@ class ClientHandler(
     // constructor
     ////////////////////////////////////////////////////////////////////////////////
     init {
-        log.debug("ClientHandler ${id}")
+        log.debug("Handler ${id}")
         // initialize socket handler
         socket?.handler{ handle(it) }
         socket?.closeHandler {

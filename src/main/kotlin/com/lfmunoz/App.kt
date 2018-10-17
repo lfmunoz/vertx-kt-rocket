@@ -1,24 +1,23 @@
 package com.lfmunoz
 
-import io.vertx.config.ConfigRetriever
 import io.vertx.core.Launcher
-import io.vertx.core.Vertx
 import io.vertx.core.VertxOptions
 import io.vertx.core.json.JsonObject
-import io.vertx.core.logging.LoggerFactory
-import io.vertx.core.logging.SLF4JLogDelegateFactory
-import io.vertx.kotlin.core.DeploymentOptions
 import io.vertx.kotlin.core.http.HttpServerOptions
-import io.vertx.kotlin.coroutines.awaitResult
 import io.vertx.kotlin.micrometer.MicrometerMetricsOptions
 import io.vertx.kotlin.micrometer.VertxPrometheusOptions
 import io.vertx.micrometer.MetricsDomain
-import kotlinx.coroutines.experimental.runBlocking
 
+////////////////////////////////////////////////////////////////////////////////
+// static main entry point
+////////////////////////////////////////////////////////////////////////////////
 fun main(args: Array<String>) {
     App().dispatch(args)
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// App
+////////////////////////////////////////////////////////////////////////////////
 class App: Launcher() {
 
     var prometheusPort: Int = 9123
@@ -48,12 +47,6 @@ class App: Launcher() {
                                 .setEmbeddedServerEndpoint(prometheusRoute)
                 )
     }
-
-
-
-
-
-
-}
+} // end of App Class
 
 

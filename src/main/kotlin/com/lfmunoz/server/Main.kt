@@ -8,17 +8,12 @@ import io.vertx.core.DeploymentOptions
 import io.vertx.kotlin.core.DeploymentOptions
 import io.vertx.kotlin.coroutines.CoroutineVerticle
 import io.vertx.kotlin.coroutines.awaitResult
-import io.vertx.kotlin.coroutines.dispatcher
-import io.vertx.kotlin.coroutines.toChannel
-import kotlinx.coroutines.experimental.GlobalScope
-import kotlinx.coroutines.experimental.delay
-import kotlinx.coroutines.experimental.launch
 import org.slf4j.LoggerFactory
 import java.util.concurrent.atomic.AtomicInteger
-import java.util.concurrent.atomic.AtomicLong
 
 ////////////////////////////////////////////////////////////////////////////////
-// Server Deployer and Management
+// Server Verticle
+//   Deployment and management
 ////////////////////////////////////////////////////////////////////////////////
 class Main : CoroutineVerticle() {
     private val log by lazy { LoggerFactory.getLogger(this.javaClass.name) }
@@ -28,7 +23,6 @@ class Main : CoroutineVerticle() {
     // Vertx methods
     ////////////////////////////////////////////////////////////////////////////////
     override suspend fun start() {
-
 
         vertx.deployVerticle(object : CoroutineVerticle() {
             override suspend fun start() {

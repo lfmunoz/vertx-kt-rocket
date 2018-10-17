@@ -1,6 +1,10 @@
 package com.lfmunoz.client
-
+////////////////////////////////////////////////////////////////////////////////
+// imports
+////////////////////////////////////////////////////////////////////////////////
 import com.lfmunoz.CLIENT_DEPLOY_SUMMARY
+import com.lfmunoz.Config
+import com.lfmunoz.infiniteIterator
 import io.micrometer.core.instrument.DistributionSummary
 import io.vertx.kotlin.coroutines.CoroutineVerticle
 import io.vertx.kotlin.coroutines.awaitResult
@@ -9,7 +13,10 @@ import io.vertx.micrometer.backends.BackendRegistries
 import kotlinx.coroutines.experimental.*
 import java.util.concurrent.TimeUnit
 
-
+////////////////////////////////////////////////////////////////////////////////
+// Client Verticle
+//   Handles management and deployment of all the client Verticles
+////////////////////////////////////////////////////////////////////////////////
 class Main : CoroutineVerticle() {
     private val log by lazy { org.slf4j.LoggerFactory.getLogger(this.javaClass.name) }
     val registry = BackendRegistries.getDefaultNow()!!
@@ -17,7 +24,9 @@ class Main : CoroutineVerticle() {
             .builder(CLIENT_DEPLOY_SUMMARY)
             .publishPercentiles(0.5, 0.95)
             .register(registry)
-
+    ////////////////////////////////////////////////////////////////////////////////
+    // Verticle methods start()/stop()
+    ////////////////////////////////////////////////////////////////////////////////
     override suspend fun start() {
         println(this.javaClass.name)
         GlobalScope.launch(context.dispatcher()) {
@@ -53,7 +62,8 @@ class Main : CoroutineVerticle() {
                 val config = Config( port, host, addressItr.next(), sendDelay )
                 val id = it
                 try {
-                    awaitResult<String> { vertx.deployVerticle(ClientVerticle(id, config), it) }
+                    awaitResult<String> { vertx.deployVerticle(Verticle(id, config), it) }
+                    //awaitResult<String> { handler -> vertx.deployVerticle(Verticle(id, config), handler) }
                 } catch (e: Exception) {
                     log.error("Deploy error - {}", e.message)
                 }
@@ -65,25 +75,6 @@ class Main : CoroutineVerticle() {
             log.info("Finished deploying {} clients", numOfClients)
         }
     }
-}
+} // end of class
 
 
-data class Config(
-        val port: Int,
-        val remoteHost: String,
-        val localHost: String,
-        val sendDelay: Long
-        // val registry: MeterRegistry
-)
-
-
-fun infiniteIterator(items: List<String>) = object : Iterator<String> {
-    var idx = 0
-    override fun hasNext(): Boolean {
-        return true
-    }
-
-    override fun next(): String {
-        return items[idx++ % items.size]
-    }
-}
