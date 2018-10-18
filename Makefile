@@ -46,6 +46,11 @@ upload:
 	ssh perf "cd; cd rocket; echo RCOMMIT=${GIT_HASH} >> Makefile"
 
 
+getLogs:
+	scp ${SERVER}:~/rocket/rocket${GIT_HASH}.log ./docs/serverLog${GIT_HASH}.log
+	scp ${CLIENT}:~/rocket/rocket${GIT_HASH}.log ./docs/clientLog${GIT_HASH}.log
+
+
 config:
 	ssh c12-24 "mkdir -p rocket"
 	ssh perf "mkdir -p rocket"

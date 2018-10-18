@@ -1,0 +1,586 @@
+[32m[vert.x-eventloop-thread-2][0;39m-[34m[INFO ][0;39m-[36m[c.l.s.Verticle][0;39m 
+----------------------------------------------------------
+Server - start() thread io.vertx.core.impl.EventLoopContext@263f9d37
+ port = 8123
+ delayBetweenSend = 10000
+---------------------------------------------------------- 
+[32m[vert.x-eventloop-thread-15][0;39m-[34m[INFO ][0;39m-[36m[c.l.s.Verticle][0;39m 
+----------------------------------------------------------
+Server - start() thread io.vertx.core.impl.EventLoopContext@1d44472a
+ port = 8123
+ delayBetweenSend = 10000
+---------------------------------------------------------- 
+[32m[vert.x-eventloop-thread-8][0;39m-[34m[INFO ][0;39m-[36m[c.l.s.Verticle][0;39m 
+----------------------------------------------------------
+Server - start() thread io.vertx.core.impl.EventLoopContext@dbe65d0
+ port = 8123
+ delayBetweenSend = 10000
+---------------------------------------------------------- 
+[32m[vert.x-eventloop-thread-11][0;39m-[34m[INFO ][0;39m-[36m[c.l.s.Verticle][0;39m 
+----------------------------------------------------------
+Server - start() thread io.vertx.core.impl.EventLoopContext@46e84739
+ port = 8123
+ delayBetweenSend = 10000
+---------------------------------------------------------- 
+[32m[vert.x-eventloop-thread-17][0;39m-[34m[INFO ][0;39m-[36m[c.l.s.Verticle][0;39m 
+----------------------------------------------------------
+Server - start() thread io.vertx.core.impl.EventLoopContext@2b06a366
+ port = 8123
+ delayBetweenSend = 10000
+---------------------------------------------------------- 
+[32m[vert.x-eventloop-thread-12][0;39m-[34m[INFO ][0;39m-[36m[c.l.s.Verticle][0;39m 
+----------------------------------------------------------
+Server - start() thread io.vertx.core.impl.EventLoopContext@4e56cda1
+ port = 8123
+ delayBetweenSend = 10000
+---------------------------------------------------------- 
+[32m[vert.x-eventloop-thread-6][0;39m-[34m[INFO ][0;39m-[36m[c.l.s.Verticle][0;39m 
+----------------------------------------------------------
+Server - start() thread io.vertx.core.impl.EventLoopContext@5ae3c9f5
+ port = 8123
+ delayBetweenSend = 10000
+---------------------------------------------------------- 
+[32m[vert.x-eventloop-thread-14][0;39m-[34m[INFO ][0;39m-[36m[c.l.s.Verticle][0;39m 
+----------------------------------------------------------
+Server - start() thread io.vertx.core.impl.EventLoopContext@54985da7
+ port = 8123
+ delayBetweenSend = 10000
+---------------------------------------------------------- 
+[32m[vert.x-eventloop-thread-16][0;39m-[34m[INFO ][0;39m-[36m[c.l.s.Verticle][0;39m 
+----------------------------------------------------------
+Server - start() thread io.vertx.core.impl.EventLoopContext@157abbad
+ port = 8123
+ delayBetweenSend = 10000
+---------------------------------------------------------- 
+[32m[vert.x-eventloop-thread-3][0;39m-[34m[INFO ][0;39m-[36m[c.l.s.Verticle][0;39m 
+----------------------------------------------------------
+Server - start() thread io.vertx.core.impl.EventLoopContext@43dc76c0
+ port = 8123
+ delayBetweenSend = 10000
+---------------------------------------------------------- 
+[32m[vert.x-eventloop-thread-10][0;39m-[34m[INFO ][0;39m-[36m[c.l.s.Verticle][0;39m 
+----------------------------------------------------------
+Server - start() thread io.vertx.core.impl.EventLoopContext@a4b5051
+ port = 8123
+ delayBetweenSend = 10000
+---------------------------------------------------------- 
+[32m[vert.x-eventloop-thread-9][0;39m-[34m[INFO ][0;39m-[36m[c.l.s.Verticle][0;39m 
+----------------------------------------------------------
+Server - start() thread io.vertx.core.impl.EventLoopContext@3366e0ad
+ port = 8123
+ delayBetweenSend = 10000
+---------------------------------------------------------- 
+[32m[vert.x-eventloop-thread-4][0;39m-[34m[INFO ][0;39m-[36m[c.l.s.Verticle][0;39m 
+----------------------------------------------------------
+Server - start() thread io.vertx.core.impl.EventLoopContext@6cfda449
+ port = 8123
+ delayBetweenSend = 10000
+---------------------------------------------------------- 
+[32m[vert.x-eventloop-thread-7][0;39m-[34m[INFO ][0;39m-[36m[c.l.s.Verticle][0;39m 
+----------------------------------------------------------
+Server - start() thread io.vertx.core.impl.EventLoopContext@697d0d18
+ port = 8123
+ delayBetweenSend = 10000
+---------------------------------------------------------- 
+[32m[vert.x-eventloop-thread-5][0;39m-[34m[INFO ][0;39m-[36m[c.l.s.Verticle][0;39m 
+----------------------------------------------------------
+Server - start() thread io.vertx.core.impl.EventLoopContext@19752d16
+ port = 8123
+ delayBetweenSend = 10000
+---------------------------------------------------------- 
+[32m[vert.x-eventloop-thread-13][0;39m-[34m[INFO ][0;39m-[36m[c.l.s.Verticle][0;39m 
+----------------------------------------------------------
+Server - start() thread io.vertx.core.impl.EventLoopContext@25822a2d
+ port = 8123
+ delayBetweenSend = 10000
+---------------------------------------------------------- 
+Oct 17, 2018 3:31:26 PM io.vertx.core.impl.launcher.commands.VertxIsolatedDeployer
+INFO: Succeeded in deploying verticle
+Oct 17, 2018 5:40:31 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 3236 ms, time limit is 2000
+Oct 17, 2018 5:46:20 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 4639 ms, time limit is 2000
+Oct 17, 2018 5:53:24 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2708 ms, time limit is 2000
+Oct 17, 2018 6:01:19 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2996 ms, time limit is 2000
+Oct 17, 2018 6:09:55 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 3223 ms, time limit is 2000
+Oct 17, 2018 6:18:52 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-6,5,main] has been blocked for 2905 ms, time limit is 2000
+Oct 17, 2018 6:28:06 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2788 ms, time limit is 2000
+Oct 17, 2018 6:36:31 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2532 ms, time limit is 2000
+Oct 17, 2018 6:45:03 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2578 ms, time limit is 2000
+Oct 17, 2018 6:53:39 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2617 ms, time limit is 2000
+Oct 17, 2018 6:53:39 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-16,5,main] has been blocked for 2617 ms, time limit is 2000
+Oct 17, 2018 6:53:39 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-6,5,main] has been blocked for 2617 ms, time limit is 2000
+Oct 17, 2018 7:02:15 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2633 ms, time limit is 2000
+Oct 17, 2018 7:10:56 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2527 ms, time limit is 2000
+Oct 17, 2018 7:10:56 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-6,5,main] has been blocked for 2527 ms, time limit is 2000
+Oct 17, 2018 7:10:56 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-15,5,main] has been blocked for 2527 ms, time limit is 2000
+Oct 17, 2018 7:10:56 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-17,5,main] has been blocked for 2527 ms, time limit is 2000
+Oct 17, 2018 7:19:36 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2462 ms, time limit is 2000
+Oct 17, 2018 7:28:17 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2580 ms, time limit is 2000
+Oct 17, 2018 7:28:17 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-16,5,main] has been blocked for 2580 ms, time limit is 2000
+Oct 17, 2018 7:28:17 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-9,5,main] has been blocked for 2580 ms, time limit is 2000
+Oct 17, 2018 7:28:17 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-3,5,main] has been blocked for 2580 ms, time limit is 2000
+Oct 17, 2018 7:28:17 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-12,5,main] has been blocked for 2580 ms, time limit is 2000
+Oct 17, 2018 7:28:17 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-13,5,main] has been blocked for 2580 ms, time limit is 2000
+Oct 17, 2018 7:36:57 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2514 ms, time limit is 2000
+Oct 17, 2018 7:36:57 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-15,5,main] has been blocked for 2514 ms, time limit is 2000
+Oct 17, 2018 7:36:57 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-17,5,main] has been blocked for 2514 ms, time limit is 2000
+Oct 17, 2018 7:36:57 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-12,5,main] has been blocked for 2514 ms, time limit is 2000
+Oct 17, 2018 7:36:57 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-13,5,main] has been blocked for 2514 ms, time limit is 2000
+Oct 17, 2018 7:45:39 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2626 ms, time limit is 2000
+Oct 17, 2018 7:54:19 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2504 ms, time limit is 2000
+Oct 17, 2018 8:03:05 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-6,5,main] has been blocked for 2398 ms, time limit is 2000
+Oct 17, 2018 8:12:09 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2571 ms, time limit is 2000
+Oct 17, 2018 8:12:09 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-9,5,main] has been blocked for 2571 ms, time limit is 2000
+Oct 17, 2018 8:12:09 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-15,5,main] has been blocked for 2571 ms, time limit is 2000
+Oct 17, 2018 8:12:09 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-12,5,main] has been blocked for 2571 ms, time limit is 2000
+Oct 17, 2018 8:21:06 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2583 ms, time limit is 2000
+Oct 17, 2018 8:30:18 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2598 ms, time limit is 2000
+Oct 17, 2018 8:38:44 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2528 ms, time limit is 2000
+Oct 17, 2018 8:38:44 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-9,5,main] has been blocked for 2528 ms, time limit is 2000
+Oct 17, 2018 9:06:58 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2655 ms, time limit is 2000
+Oct 17, 2018 9:15:24 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2557 ms, time limit is 2000
+Oct 17, 2018 9:23:55 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2623 ms, time limit is 2000
+Oct 17, 2018 9:23:55 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-6,5,main] has been blocked for 2623 ms, time limit is 2000
+Oct 17, 2018 9:23:55 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-17,5,main] has been blocked for 2623 ms, time limit is 2000
+Oct 17, 2018 9:23:55 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-11,5,main] has been blocked for 2623 ms, time limit is 2000
+Oct 17, 2018 9:23:55 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-13,5,main] has been blocked for 2623 ms, time limit is 2000
+Oct 17, 2018 9:23:55 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-10,5,main] has been blocked for 2623 ms, time limit is 2000
+Oct 17, 2018 9:32:30 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2610 ms, time limit is 2000
+Oct 17, 2018 9:41:06 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2406 ms, time limit is 2000
+Oct 17, 2018 9:49:43 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2610 ms, time limit is 2000
+Oct 17, 2018 9:49:43 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-6,5,main] has been blocked for 2610 ms, time limit is 2000
+Oct 17, 2018 9:49:43 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-4,5,main] has been blocked for 2610 ms, time limit is 2000
+Oct 17, 2018 9:49:43 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-7,5,main] has been blocked for 2610 ms, time limit is 2000
+Oct 17, 2018 9:58:19 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-16,5,main] has been blocked for 2573 ms, time limit is 2000
+Oct 17, 2018 10:06:56 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-6,5,main] has been blocked for 2489 ms, time limit is 2000
+Oct 17, 2018 10:06:56 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-7,5,main] has been blocked for 2488 ms, time limit is 2000
+Oct 17, 2018 10:15:31 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2400 ms, time limit is 2000
+Oct 17, 2018 10:24:07 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-4,5,main] has been blocked for 2488 ms, time limit is 2000
+Oct 17, 2018 10:32:43 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2607 ms, time limit is 2000
+Oct 17, 2018 10:50:01 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2613 ms, time limit is 2000
+Oct 17, 2018 10:50:01 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-16,5,main] has been blocked for 2613 ms, time limit is 2000
+Oct 17, 2018 10:58:41 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2610 ms, time limit is 2000
+Oct 17, 2018 10:58:41 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-16,5,main] has been blocked for 2610 ms, time limit is 2000
+Oct 17, 2018 11:15:59 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2648 ms, time limit is 2000
+Oct 17, 2018 11:15:59 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-16,5,main] has been blocked for 2648 ms, time limit is 2000
+Oct 17, 2018 11:15:59 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-5,5,main] has been blocked for 2648 ms, time limit is 2000
+Oct 17, 2018 11:15:59 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-3,5,main] has been blocked for 2648 ms, time limit is 2000
+Oct 17, 2018 11:15:59 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-12,5,main] has been blocked for 2648 ms, time limit is 2000
+Oct 17, 2018 11:15:59 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-13,5,main] has been blocked for 2648 ms, time limit is 2000
+Oct 17, 2018 11:34:02 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2630 ms, time limit is 2000
+Oct 17, 2018 11:34:02 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-6,5,main] has been blocked for 2630 ms, time limit is 2000
+Oct 17, 2018 11:34:02 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-9,5,main] has been blocked for 2630 ms, time limit is 2000
+Oct 17, 2018 11:34:02 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-3,5,main] has been blocked for 2630 ms, time limit is 2000
+Oct 17, 2018 11:43:12 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-13,5,main] has been blocked for 2767 ms, time limit is 2000
+Oct 17, 2018 11:52:35 PM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-6,5,main] has been blocked for 6500 ms, time limit is 2000
+io.vertx.core.VertxException: Thread blocked
+	at java.lang.Math.ulp(Math.java:1429)
+	at org.HdrHistogram.DoubleHistogram.autoAdjustRangeForValueSlowPath(DoubleHistogram.java:407)
+	at org.HdrHistogram.DoubleHistogram.autoAdjustRangeForValue(DoubleHistogram.java:379)
+	at org.HdrHistogram.DoubleHistogram.recordSingleValue(DoubleHistogram.java:347)
+	at org.HdrHistogram.DoubleHistogram.recordValue(DoubleHistogram.java:293)
+	at org.HdrHistogram.DoubleRecorder.recordValue(DoubleRecorder.java:76)
+	at io.micrometer.core.instrument.distribution.TimeWindowHistogram.recordDouble(TimeWindowHistogram.java:43)
+	at io.micrometer.core.instrument.distribution.TimeWindowHistogram.recordDouble(TimeWindowHistogram.java:26)
+	at io.micrometer.core.instrument.distribution.TimeWindowHistogramBase.recordDouble(TimeWindowHistogramBase.java:230)
+	at io.micrometer.core.instrument.AbstractDistributionSummary.record(AbstractDistributionSummary.java:39)
+	at com.lfmunoz.server.Handler$sendPings$1.doResume(Handler.kt:72)
+	at kotlin.coroutines.experimental.jvm.internal.CoroutineImpl.resume(CoroutineImpl.kt:42)
+	at kotlinx.coroutines.experimental.ResumeModeKt.resumeMode(ResumeMode.kt:67)
+	at kotlinx.coroutines.experimental.DispatchedKt.dispatch(Dispatched.kt:201)
+	at kotlinx.coroutines.experimental.AbstractContinuation.dispatchResume(AbstractContinuation.kt:185)
+	at kotlinx.coroutines.experimental.AbstractContinuation.completeStateUpdate(AbstractContinuation.kt:253)
+	at kotlinx.coroutines.experimental.AbstractContinuation.updateStateToFinal(AbstractContinuation.kt:225)
+	at kotlinx.coroutines.experimental.AbstractContinuation.resumeImpl(AbstractContinuation.kt:198)
+	at kotlinx.coroutines.experimental.CancellableContinuationImpl.resumeUndispatched(CancellableContinuation.kt:334)
+	at kotlinx.coroutines.experimental.ResumeUndispatchedRunnable.run(Executors.kt:156)
+	at io.vertx.kotlin.coroutines.VertxScheduledFuture.handle(VertxCoroutine.kt:379)
+	at io.vertx.kotlin.coroutines.VertxScheduledFuture.handle(VertxCoroutine.kt:348)
+	at io.vertx.core.impl.VertxImpl$InternalTimerHandler.handle(VertxImpl.java:885)
+	at io.vertx.core.impl.VertxImpl$InternalTimerHandler.handle(VertxImpl.java:844)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$2(ContextImpl.java:339)
+	at io.vertx.core.impl.ContextImpl$$Lambda$42/2056904929.run(Unknown Source)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:404)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:463)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:886)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+
+Oct 18, 2018 12:02:01 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-10,5,main] has been blocked for 2585 ms, time limit is 2000
+Oct 18, 2018 12:10:37 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2518 ms, time limit is 2000
+Oct 18, 2018 12:19:13 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2671 ms, time limit is 2000
+Oct 18, 2018 12:36:31 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-12,5,main] has been blocked for 2645 ms, time limit is 2000
+Oct 18, 2018 12:45:11 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-5,5,main] has been blocked for 2619 ms, time limit is 2000
+Oct 18, 2018 12:45:11 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-15,5,main] has been blocked for 2619 ms, time limit is 2000
+Oct 18, 2018 12:53:52 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-16,5,main] has been blocked for 2620 ms, time limit is 2000
+Oct 18, 2018 1:19:51 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2647 ms, time limit is 2000
+Oct 18, 2018 1:19:51 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-6,5,main] has been blocked for 2647 ms, time limit is 2000
+Oct 18, 2018 1:19:51 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-12,5,main] has been blocked for 2647 ms, time limit is 2000
+Oct 18, 2018 1:19:51 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-14,5,main] has been blocked for 2647 ms, time limit is 2000
+Oct 18, 2018 1:19:51 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-13,5,main] has been blocked for 2647 ms, time limit is 2000
+Oct 18, 2018 1:28:33 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2636 ms, time limit is 2000
+Oct 18, 2018 1:45:51 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2702 ms, time limit is 2000
+Oct 18, 2018 1:54:32 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2658 ms, time limit is 2000
+Oct 18, 2018 2:03:11 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-3,5,main] has been blocked for 2754 ms, time limit is 2000
+Oct 18, 2018 2:03:11 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-11,5,main] has been blocked for 2754 ms, time limit is 2000
+Oct 18, 2018 2:11:50 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2569 ms, time limit is 2000
+Oct 18, 2018 2:29:12 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2711 ms, time limit is 2000
+Oct 18, 2018 2:37:53 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2640 ms, time limit is 2000
+Oct 18, 2018 2:46:32 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2814 ms, time limit is 2000
+Oct 18, 2018 2:55:20 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 11870 ms, time limit is 2000
+io.vertx.core.VertxException: Thread blocked
+	at sun.nio.ch.EPollArrayWrapper.epollWait(Native Method)
+	at sun.nio.ch.EPollArrayWrapper.poll(EPollArrayWrapper.java:269)
+	at sun.nio.ch.EPollSelectorImpl.doSelect(EPollSelectorImpl.java:93)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:86)
+	at sun.nio.ch.SelectorImpl.selectNow(SelectorImpl.java:105)
+	at io.netty.channel.nio.SelectedSelectionKeySetSelector.selectNow(SelectedSelectionKeySetSelector.java:56)
+	at io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:737)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:409)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:886)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+
+Oct 18, 2018 3:12:36 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2820 ms, time limit is 2000
+Oct 18, 2018 3:21:16 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2802 ms, time limit is 2000
+Oct 18, 2018 3:29:57 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2808 ms, time limit is 2000
+Oct 18, 2018 3:38:38 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2855 ms, time limit is 2000
+Oct 18, 2018 3:47:20 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2914 ms, time limit is 2000
+Oct 18, 2018 3:55:59 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2873 ms, time limit is 2000
+Oct 18, 2018 4:04:43 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-6,5,main] has been blocked for 2610 ms, time limit is 2000
+Oct 18, 2018 4:14:03 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2888 ms, time limit is 2000
+Oct 18, 2018 4:14:03 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-7,5,main] has been blocked for 2888 ms, time limit is 2000
+Oct 18, 2018 4:14:03 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-12,5,main] has been blocked for 2888 ms, time limit is 2000
+Oct 18, 2018 4:23:11 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2889 ms, time limit is 2000
+Oct 18, 2018 4:32:30 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2889 ms, time limit is 2000
+Oct 18, 2018 4:49:36 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-16,5,main] has been blocked for 2948 ms, time limit is 2000
+Oct 18, 2018 4:58:13 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-11,5,main] has been blocked for 2894 ms, time limit is 2000
+Oct 18, 2018 5:24:11 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2728 ms, time limit is 2000
+Oct 18, 2018 5:32:52 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2935 ms, time limit is 2000
+Oct 18, 2018 5:41:34 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2827 ms, time limit is 2000
+Oct 18, 2018 5:50:14 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2892 ms, time limit is 2000
+Oct 18, 2018 5:50:14 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2892 ms, time limit is 2000
+Oct 18, 2018 5:50:14 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-16,5,main] has been blocked for 2892 ms, time limit is 2000
+Oct 18, 2018 5:50:14 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-9,5,main] has been blocked for 2892 ms, time limit is 2000
+Oct 18, 2018 5:50:14 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-15,5,main] has been blocked for 2892 ms, time limit is 2000
+Oct 18, 2018 5:50:14 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-14,5,main] has been blocked for 2892 ms, time limit is 2000
+Oct 18, 2018 5:50:14 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-13,5,main] has been blocked for 2892 ms, time limit is 2000
+Oct 18, 2018 5:59:02 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 8778 ms, time limit is 2000
+io.vertx.core.VertxException: Thread blocked
+	at kotlinx.coroutines.experimental.DelayKt.delay(Delay.kt:132)
+	at com.lfmunoz.server.Handler$sendPings$1.doResume(Handler.kt:73)
+	at kotlin.coroutines.experimental.jvm.internal.CoroutineImpl.resume(CoroutineImpl.kt:42)
+	at kotlinx.coroutines.experimental.ResumeModeKt.resumeMode(ResumeMode.kt:67)
+	at kotlinx.coroutines.experimental.DispatchedKt.dispatch(Dispatched.kt:201)
+	at kotlinx.coroutines.experimental.AbstractContinuation.dispatchResume(AbstractContinuation.kt:185)
+	at kotlinx.coroutines.experimental.AbstractContinuation.completeStateUpdate(AbstractContinuation.kt:253)
+	at kotlinx.coroutines.experimental.AbstractContinuation.updateStateToFinal(AbstractContinuation.kt:225)
+	at kotlinx.coroutines.experimental.AbstractContinuation.resumeImpl(AbstractContinuation.kt:198)
+	at kotlinx.coroutines.experimental.CancellableContinuationImpl.resumeUndispatched(CancellableContinuation.kt:334)
+	at kotlinx.coroutines.experimental.ResumeUndispatchedRunnable.run(Executors.kt:156)
+	at io.vertx.kotlin.coroutines.VertxScheduledFuture.handle(VertxCoroutine.kt:379)
+	at io.vertx.kotlin.coroutines.VertxScheduledFuture.handle(VertxCoroutine.kt:348)
+	at io.vertx.core.impl.VertxImpl$InternalTimerHandler.handle(VertxImpl.java:885)
+	at io.vertx.core.impl.VertxImpl$InternalTimerHandler.handle(VertxImpl.java:844)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$2(ContextImpl.java:339)
+	at io.vertx.core.impl.ContextImpl$$Lambda$42/2056904929.run(Unknown Source)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:404)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:463)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:886)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+
+Oct 18, 2018 5:59:02 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-4,5,main] has been blocked for 8778 ms, time limit is 2000
+io.vertx.core.VertxException: Thread blocked
+	at java.lang.Object.hashCode(Native Method)
+	at java.util.HashMap.hash(HashMap.java:339)
+	at java.util.HashMap.put(HashMap.java:612)
+	at java.util.HashSet.add(HashSet.java:220)
+	at io.vertx.core.impl.CloseHooks.add(CloseHooks.java:48)
+	at io.vertx.core.impl.ContextImpl.addCloseHook(ContextImpl.java:123)
+	at io.vertx.core.impl.VertxImpl.scheduleTimeout(VertxImpl.java:482)
+	at io.vertx.core.impl.VertxImpl.setTimer(VertxImpl.java:327)
+	at io.vertx.kotlin.coroutines.VertxScheduledFuture.schedule(VertxCoroutine.kt:362)
+	at io.vertx.kotlin.coroutines.VertxCoroutineExecutor.schedule(VertxCoroutine.kt:416)
+	at kotlinx.coroutines.experimental.ExecutorCoroutineDispatcherBase.scheduleBlock(Executors.kt:136)
+	at kotlinx.coroutines.experimental.ExecutorCoroutineDispatcherBase.scheduleResumeAfterDelay(Executors.kt:111)
+	at kotlinx.coroutines.experimental.DelayKt.delay(Delay.kt:92)
+	at com.lfmunoz.server.Handler$sendPings$1.doResume(Handler.kt:73)
+	at kotlin.coroutines.experimental.jvm.internal.CoroutineImpl.resume(CoroutineImpl.kt:42)
+	at kotlinx.coroutines.experimental.ResumeModeKt.resumeMode(ResumeMode.kt:67)
+	at kotlinx.coroutines.experimental.DispatchedKt.dispatch(Dispatched.kt:201)
+	at kotlinx.coroutines.experimental.AbstractContinuation.dispatchResume(AbstractContinuation.kt:185)
+	at kotlinx.coroutines.experimental.AbstractContinuation.completeStateUpdate(AbstractContinuation.kt:253)
+	at kotlinx.coroutines.experimental.AbstractContinuation.updateStateToFinal(AbstractContinuation.kt:225)
+	at kotlinx.coroutines.experimental.AbstractContinuation.resumeImpl(AbstractContinuation.kt:198)
+	at kotlinx.coroutines.experimental.CancellableContinuationImpl.resumeUndispatched(CancellableContinuation.kt:334)
+	at kotlinx.coroutines.experimental.ResumeUndispatchedRunnable.run(Executors.kt:156)
+	at io.vertx.kotlin.coroutines.VertxScheduledFuture.handle(VertxCoroutine.kt:379)
+	at io.vertx.kotlin.coroutines.VertxScheduledFuture.handle(VertxCoroutine.kt:348)
+	at io.vertx.core.impl.VertxImpl$InternalTimerHandler.handle(VertxImpl.java:885)
+	at io.vertx.core.impl.VertxImpl$InternalTimerHandler.handle(VertxImpl.java:844)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$2(ContextImpl.java:339)
+	at io.vertx.core.impl.ContextImpl$$Lambda$42/2056904929.run(Unknown Source)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:404)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:463)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:886)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+
+Oct 18, 2018 6:08:28 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2549 ms, time limit is 2000
+Oct 18, 2018 6:16:56 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2572 ms, time limit is 2000
+Oct 18, 2018 6:16:56 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-16,5,main] has been blocked for 2572 ms, time limit is 2000
+Oct 18, 2018 6:25:27 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-7,5,main] has been blocked for 2799 ms, time limit is 2000
+Oct 18, 2018 6:34:03 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2795 ms, time limit is 2000
+Oct 18, 2018 6:34:03 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-5,5,main] has been blocked for 2795 ms, time limit is 2000
+Oct 18, 2018 6:42:40 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2643 ms, time limit is 2000
+Oct 18, 2018 6:42:40 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-16,5,main] has been blocked for 2643 ms, time limit is 2000
+Oct 18, 2018 6:42:40 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-6,5,main] has been blocked for 2643 ms, time limit is 2000
+Oct 18, 2018 6:42:40 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-9,5,main] has been blocked for 2643 ms, time limit is 2000
+Oct 18, 2018 6:42:40 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-7,5,main] has been blocked for 2643 ms, time limit is 2000
+Oct 18, 2018 6:42:40 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-17,5,main] has been blocked for 2643 ms, time limit is 2000
+Oct 18, 2018 6:42:40 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-12,5,main] has been blocked for 2643 ms, time limit is 2000
+Oct 18, 2018 6:42:40 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-10,5,main] has been blocked for 2643 ms, time limit is 2000
+Oct 18, 2018 6:59:59 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2807 ms, time limit is 2000
+Oct 18, 2018 7:25:55 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2484 ms, time limit is 2000
+Oct 18, 2018 7:34:31 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2713 ms, time limit is 2000
+Oct 18, 2018 7:34:31 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-16,5,main] has been blocked for 2713 ms, time limit is 2000
+Oct 18, 2018 7:34:31 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-9,5,main] has been blocked for 2713 ms, time limit is 2000
+Oct 18, 2018 7:34:31 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-12,5,main] has been blocked for 2713 ms, time limit is 2000
+Oct 18, 2018 7:34:31 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-11,5,main] has been blocked for 2713 ms, time limit is 2000
+Oct 18, 2018 7:34:31 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-13,5,main] has been blocked for 2713 ms, time limit is 2000
+Oct 18, 2018 7:34:31 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-10,5,main] has been blocked for 2713 ms, time limit is 2000
+Oct 18, 2018 7:43:39 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2739 ms, time limit is 2000
+Oct 18, 2018 7:52:59 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2818 ms, time limit is 2000
+Oct 18, 2018 8:01:29 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2570 ms, time limit is 2000
+Oct 18, 2018 8:10:03 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2596 ms, time limit is 2000
+Oct 18, 2018 8:18:40 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2684 ms, time limit is 2000
+Oct 18, 2018 8:27:19 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2744 ms, time limit is 2000
+Oct 18, 2018 8:44:38 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2707 ms, time limit is 2000
+Oct 18, 2018 8:53:20 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2845 ms, time limit is 2000
+Oct 18, 2018 9:02:04 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-9,5,main] has been blocked for 8188 ms, time limit is 2000
+io.vertx.core.VertxException: Thread blocked
+	at sun.nio.ch.FileDispatcherImpl.write0(Native Method)
+	at sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:47)
+	at sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:93)
+	at sun.nio.ch.IOUtil.write(IOUtil.java:51)
+	at sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:471)
+	at io.netty.channel.socket.nio.NioSocketChannel.doWrite(NioSocketChannel.java:403)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.flush0(AbstractChannel.java:934)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.flush0(AbstractNioChannel.java:362)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.flush(AbstractChannel.java:901)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.flush(DefaultChannelPipeline.java:1321)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeFlush0(AbstractChannelHandlerContext.java:776)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeWriteAndFlush(AbstractChannelHandlerContext.java:802)
+	at io.netty.channel.AbstractChannelHandlerContext.write(AbstractChannelHandlerContext.java:814)
+	at io.netty.channel.AbstractChannelHandlerContext.writeAndFlush(AbstractChannelHandlerContext.java:794)
+	at io.vertx.core.net.impl.ConnectionBase.write(ConnectionBase.java:107)
+	at io.vertx.core.net.impl.ConnectionBase.writeToChannel(ConnectionBase.java:117)
+	at io.vertx.core.net.impl.ConnectionBase.writeToChannel(ConnectionBase.java:134)
+	at io.vertx.core.net.impl.NetSocketImpl.write(NetSocketImpl.java:391)
+	at io.vertx.core.net.impl.NetSocketImpl.write(NetSocketImpl.java:135)
+	at com.lfmunoz.server.Handler$sendPings$1.doResume(Handler.kt:69)
+	at kotlin.coroutines.experimental.jvm.internal.CoroutineImpl.resume(CoroutineImpl.kt:42)
+	at kotlinx.coroutines.experimental.ResumeModeKt.resumeMode(ResumeMode.kt:67)
+	at kotlinx.coroutines.experimental.DispatchedKt.dispatch(Dispatched.kt:201)
+	at kotlinx.coroutines.experimental.AbstractContinuation.dispatchResume(AbstractContinuation.kt:185)
+	at kotlinx.coroutines.experimental.AbstractContinuation.completeStateUpdate(AbstractContinuation.kt:253)
+	at kotlinx.coroutines.experimental.AbstractContinuation.updateStateToFinal(AbstractContinuation.kt:225)
+	at kotlinx.coroutines.experimental.AbstractContinuation.resumeImpl(AbstractContinuation.kt:198)
+	at kotlinx.coroutines.experimental.CancellableContinuationImpl.resumeUndispatched(CancellableContinuation.kt:334)
+	at kotlinx.coroutines.experimental.ResumeUndispatchedRunnable.run(Executors.kt:156)
+	at io.vertx.kotlin.coroutines.VertxScheduledFuture.handle(VertxCoroutine.kt:379)
+	at io.vertx.kotlin.coroutines.VertxScheduledFuture.handle(VertxCoroutine.kt:348)
+	at io.vertx.core.impl.VertxImpl$InternalTimerHandler.handle(VertxImpl.java:885)
+	at io.vertx.core.impl.VertxImpl$InternalTimerHandler.handle(VertxImpl.java:844)
+	at io.vertx.core.impl.ContextImpl.lambda$wrapTask$2(ContextImpl.java:339)
+	at io.vertx.core.impl.ContextImpl$$Lambda$42/2056904929.run(Unknown Source)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:404)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:463)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:886)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+
+Oct 18, 2018 9:10:40 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2413 ms, time limit is 2000
+Oct 18, 2018 9:10:40 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-15,5,main] has been blocked for 2413 ms, time limit is 2000
+Oct 18, 2018 9:19:19 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-6,5,main] has been blocked for 2554 ms, time limit is 2000
+Oct 18, 2018 9:27:59 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2580 ms, time limit is 2000
+Oct 18, 2018 9:27:59 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-6,5,main] has been blocked for 2580 ms, time limit is 2000
+Oct 18, 2018 9:27:59 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-4,5,main] has been blocked for 2580 ms, time limit is 2000
+Oct 18, 2018 9:27:59 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-5,5,main] has been blocked for 2580 ms, time limit is 2000
+Oct 18, 2018 9:27:59 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-3,5,main] has been blocked for 2580 ms, time limit is 2000
+Oct 18, 2018 9:27:59 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-15,5,main] has been blocked for 2580 ms, time limit is 2000
+Oct 18, 2018 9:36:38 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-8,5,main] has been blocked for 2459 ms, time limit is 2000
+Oct 18, 2018 9:53:57 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2828 ms, time limit is 2000
+Oct 18, 2018 10:02:38 AM io.vertx.core.impl.BlockedThreadChecker
+WARNING: Thread Thread[vert.x-eventloop-thread-2,5,main] has been blocked for 2833 ms, time limit is 2000
