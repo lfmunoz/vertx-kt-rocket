@@ -1,9 +1,6 @@
 package com.lfmunoz.server
 
-import com.lfmunoz.SERVER_CONNECTION_COUNT
-import com.lfmunoz.SERVER_DISCONNECTION_COUNT
-import com.lfmunoz.SERVER_EXCEPTION_COUNT
-import com.lfmunoz.SERVER_ID_SERVICE
+import com.lfmunoz.*
 import io.micrometer.core.instrument.DistributionSummary
 import io.vertx.core.Vertx
 import io.vertx.core.eventbus.Message
@@ -15,6 +12,7 @@ import io.vertx.kotlin.coroutines.*
 import io.vertx.micrometer.backends.BackendRegistries
 import kotlinx.coroutines.experimental.*
 import org.slf4j.LoggerFactory
+import java.lang.IllegalStateException
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.atomic.AtomicInteger
 import java.util.concurrent.atomic.AtomicLong
@@ -25,40 +23,16 @@ import kotlin.coroutines.experimental.coroutineContext
 // Server Verticle
 ////////////////////////////////////////////////////////////////////////////////
 class Verticle : CoroutineVerticle() {
-
-    private val log by lazy { LoggerFactory.getLogger(this.javaClass.name) }
-
-    private var contextId = "N/A"
+    val log by logger()
     // fields
+    private var contextId = "N/A"
     private var port: Int = 8123
     private var delayBetweenSend = 15000L
 
-    private val registry = BackendRegistries.getDefaultNow()!!
-
-    private val connectionCount = registry.counter(SERVER_CONNECTION_COUNT)
-    private val disconnectionCount = registry.counter(SERVER_DISCONNECTION_COUNT)
-    private val exceptionCount = registry.counter(SERVER_EXCEPTION_COUNT)
-
-
-    private val connMap: ConcurrentHashMap<Int, Handler> = ConcurrentHashMap<Int, Handler>()
-
-
+    private val connMap: ConcurrentHashMap<Int, TCPInstance> = ConcurrentHashMap()
 
     override suspend fun start() {
-        contextId = context.deploymentID()
-
-
-        port = config.getInteger("port", port)
-        delayBetweenSend = config.getLong("delayBetweenSend", delayBetweenSend)
-
-        log.info(
-                "\n----------------------------------------------------------" +
-                "\nServer - start() thread ${Vertx.currentContext()}" +
-                "\n port = ${port}" +
-                "\n delayBetweenSend = ${delayBetweenSend}" +
-                "\n----------------------------------------------------------"
-        )
-        val instances = Runtime.getRuntime().availableProcessors() / 2
+        config()
         startServer()
     }
 
@@ -66,55 +40,44 @@ class Verticle : CoroutineVerticle() {
         log.trace("Server - stop() thread ${Vertx.currentContext()} ")
     }
 
-    private suspend fun startServer() {
-
-            val options = NetServerOptions(port = port)
-            val server = vertx.createNetServer(options)
-            server.connectHandler {socket ->
-                GlobalScope.launch(vertx.dispatcher()) {
-                    val id = getId()
-                    // Handle the connection in here
-                    val serverHandler = Handler(vertx, id, socket, delayBetweenSend)
-                    connMap.put(serverHandler.id, serverHandler)
-                    socket.handler(serverHandler)
-
-                    socket.closeHandler {
-                        //  connectionCount.decrementAndGet()
-                        disconnectionCount.increment()
-                    }
-                    socket.exceptionHandler { err ->
-                        exceptionCount.increment()
-                        log.error("socket exception: {} ", err.message)
-                    }
-
-                    connectionCount.increment()
-                }
-            }
-
-            server.exceptionHandler { err ->
-                log.error("server exception: {} ", err.message)
-            }
-
-            try {
-                awaitResult<NetServer> { server.listen(it) }
-            } catch (e: Exception) {
-                log.error("error with listener, ${e.message}")
-            }
+    private fun config() {
+        contextId = context.deploymentID()
+        port = config.getInteger("port", port)
+        delayBetweenSend = config.getLong("delayBetweenSend", delayBetweenSend)
+        log.info("""
+            Started Server Verticle Instance:
+             Context = ${Vertx.currentContext()}
+             port = ${port}
+             delayBetweenSend = ${delayBetweenSend}
+        """.trimIndent())
     }
 
 
-    suspend fun getId() : Int {
-        // Send a message and wait for a reply
+    private suspend fun startServer() {
+        val options = NetServerOptions(port = port)
+        val server = vertx.createNetServer(options)
+        server.connectHandler {serverConnectionHandler(it)}
+        server.exceptionHandler { serverExceptionHandler(it)}
         try {
-            val reply: Message<Int> = awaitResult<Message<Int>> { h ->
-                vertx.eventBus().send(SERVER_ID_SERVICE, 0, h)
-            }
-            return reply.body()
-        } catch(e: ReplyException) {
-            // Handle specific reply exception here
-            log.info("Reply failure: ${e.message}")
-            return 0
+            awaitResult<NetServer> { server.listen(it) }
+        } catch (e: Exception) {
+            log.error("Error with listener, ${e.message}")
         }
+    }
+
+    fun serverConnectionHandler(socket: NetSocket) {
+        // Handle the connection in here
+        val serverHandler = TCPInstance(vertx.orCreateContext,  socket, delayBetweenSend)
+        connMap[serverHandler.id] = serverHandler
+        socket.handler(serverHandler)
+
+        //connectionCount.increment()
+    }
+
+
+    fun serverExceptionHandler(err: Throwable ) {
+        // exceptionCount.increment()
+        log.error("server exception: {} ", err.message)
     }
 
 }

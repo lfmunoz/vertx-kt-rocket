@@ -1,6 +1,9 @@
 package com.lfmunoz.server
 
-import com.lfmunoz.CLIENT_PONG_SUMMARY
+////////////////////////////////////////////////////////////////////////////////
+// import
+////////////////////////////////////////////////////////////////////////////////
+import com.lfmunoz.SERVER_ID_SERVICE
 import com.lfmunoz.SERVER_PING_SUMMARY
 import com.lfmunoz.SERVER_PONG_SUMMARY
 import com.lfmunoz.logger
@@ -8,28 +11,35 @@ import io.micrometer.core.instrument.DistributionSummary
 import io.vertx.core.Handler
 import io.vertx.core.Vertx
 import io.vertx.core.buffer.Buffer
-import io.vertx.core.net.NetSocket
-import io.vertx.kotlin.coroutines.dispatcher
+import io.vertx.core.eventbus.Message
+import io.vertx.core.eventbus.ReplyException
 import io.vertx.micrometer.backends.BackendRegistries
-import kotlinx.coroutines.experimental.GlobalScope
-import kotlinx.coroutines.experimental.delay
-import kotlinx.coroutines.experimental.launch
-import org.slf4j.LoggerFactory
+import kotlinx.coroutines.experimental.*
 import java.util.concurrent.TimeUnit
+import kotlin.coroutines.experimental.CoroutineContext
+import io.vertx.core.net.NetSocket
+import io.vertx.kotlin.coroutines.awaitResult
+import io.vertx.kotlin.coroutines.dispatcher
+import kotlinx.coroutines.experimental.channels.ReceiveChannel
+import kotlinx.coroutines.experimental.channels.produce
+import io.vertx.core.Context
 
 ////////////////////////////////////////////////////////////////////////////////
 // Server Handler
 ////////////////////////////////////////////////////////////////////////////////
-class Handler(
-        val vertx: Vertx,
-        val id: Int,
-        val socket: NetSocket?,
-        val pingDelay: Long
-) : Handler<Buffer> {
+class TCPInstance(
+    val context: Context,
+    val socket: NetSocket,
+    val pingDelay: Long
+): CoroutineScope, Handler<Buffer> {
     val log by logger()
-    ////////////////////////////////////////////////////////////////////////////////
-    // fields
-    ////////////////////////////////////////////////////////////////////////////////
+
+    override val coroutineContext: CoroutineContext
+        get() = context.dispatcher() //Job()  //vertx.dispatcher()
+
+    var id : Int = 0
+
+    // Metric Fields
     val registry = BackendRegistries.getDefaultNow()!!
     val pingSummary = DistributionSummary
             .builder(SERVER_PING_SUMMARY)
@@ -40,30 +50,34 @@ class Handler(
             .publishPercentiles(0.5, 0.95)
             .register(registry)
 
+    // Fields
     var sendIdx: Long = 0L
     var lastServerActivity: Long = System.nanoTime()
     var lastPingSent : Long = System.nanoTime()
-    ////////////////////////////////////////////////////////////////////////////////
-    // constructor
-    ////////////////////////////////////////////////////////////////////////////////
+
+    // Constructor
     init {
-        log.debug("ServerHandler ${id}")
-        sendPings()
+        socket.handler(this)
+        socket.closeHandler {socketCloseHandler() }
+        socket.exceptionHandler { socketExceptionHandler(it) }
+        launch {
+            id = getId()
+            log.debug("ServerHandler ${id}")
+            sendPings()
+        }
     }
-    ////////////////////////////////////////////////////////////////////////////////
-    // methods
-    ////////////////////////////////////////////////////////////////////////////////
+
     override fun handle(buffer: Buffer) {
         val now = System.nanoTime()
         val deltaInMs = TimeUnit.NANOSECONDS.toMillis(now - lastServerActivity)
         lastServerActivity = now
         pongSummary.record(deltaInMs.toDouble())
-       // log.trace("[$id] - ${buffer.getLong(0)} on ${Vertx.currentContext()}")
+        // log.trace("[$id] - ${buffer.getLong(0)} on ${Vertx.currentContext()}")
 
     }
 
     fun sendPings() {
-        GlobalScope.launch(vertx.dispatcher()) {
+        launch {
             while(true) {
                 val now = System.nanoTime()
                 socket?.write(Buffer.buffer().appendLong(++sendIdx))
@@ -74,4 +88,19 @@ class Handler(
             }
         }
     }
-} // end of class
+
+
+    fun socketExceptionHandler(err: Throwable ) {
+       // exceptionCount.increment()
+        log.error("socket exception: {} ", err.message)
+    }
+
+    fun socketCloseHandler() {
+       // disconnectionCount.increment()
+    }
+}
+
+
+
+
+

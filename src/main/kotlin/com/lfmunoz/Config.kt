@@ -1,5 +1,7 @@
 package com.lfmunoz
 
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -43,3 +45,14 @@ fun infiniteIterator(items: List<String>) = object : Iterator<String> {
         return items[idx++ % items.size]
     }
 }
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Loggin
+////////////////////////////////////////////////////////////////////////////////
+
+
+fun <R : Any> R.logger(): Lazy<Logger> {
+    return lazy { LoggerFactory.getLogger(this.javaClass.name) }
+}
+
